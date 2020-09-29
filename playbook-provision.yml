@@ -6,6 +6,7 @@
     - common
     - vscode
     - chrome
+    - idea
   vars_prompt:
     - name: vscode
       prompt: "Install vscode (Y/n)?"
@@ -47,5 +48,10 @@
 
     - name: chrome
       prompt: "Install chrome? (Y/n)"
+      default: "Y"
+      private: no
+
+    - name: intellij
+      prompt: "Install intellij? (Y/n)"
       default: "Y"
       private: no
