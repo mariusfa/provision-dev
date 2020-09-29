@@ -7,6 +7,8 @@
     - vscode
     - chrome
     - idea
+    - postman
+    - java
   vars_prompt:
     - name: vscode
       prompt: "Install vscode (Y/n)?"
@@ -55,3 +57,14 @@
       prompt: "Install intellij? (Y/n)"
       default: "Y"
       private: no
+
+    - name: postman
+      prompt: "Install postman? (Y/n)"
+      default: "Y"
+      private: no
+
+    - name: java_maven
+      prompt: "Install java/maven? (Y/n)"
+      default: "Y"
+      private: no
+      

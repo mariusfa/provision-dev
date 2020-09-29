@@ -1,0 +1,10 @@
+---
+- name: Install java openjdk
+  apt:
+    name: default-jdk
+  when: java_maven == "Y"
+
+- name: Install maven
+  apt:
+    name: maven
+  when: java_maven == "Y"
