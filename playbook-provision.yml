@@ -9,6 +9,7 @@
     - idea
     - postman
     - java
+    - node
   vars_prompt:
     - name: vscode
       prompt: "Install vscode (Y/n)?"
@@ -68,3 +69,7 @@
       default: "Y"
       private: no
       
+    - name: node
+      prompt: "Install nvm and node? (Y/n)"
+      default: "Y"
+      private: no

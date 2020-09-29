@@ -1,4 +1,8 @@
 ---
+- name: Install curl
+  apt:
+    name: curl
+ 
 - name: Install vim
   apt:
     name: vim

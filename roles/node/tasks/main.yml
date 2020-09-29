@@ -1,0 +1,13 @@
+---
+- name: Install nvm
+  become: no
+  shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+  when: node == "Y"
+
+- name: Install node lts 
+  become: no
+  shell: source ~/.nvm/nvm.sh && nvm install --lts
+  args:
+    executable: /bin/bash
+  when: node == "Y"
