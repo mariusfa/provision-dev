@@ -1,0 +1,30 @@
+---
+- name: Add Microsoft GPG key
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+  when: vscode == "Y"
+
+- name: Add VScode repo
+  apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    state: present
+  when: vscode == "Y"
+
+- name: Install VScode
+  apt:
+    name: code
+    update_cache: yes
+  when: vscode == "Y"
+  
+- name: Install vim extension
+  become: no
+  command: code --install-extension vscodevim.vim
+  when: vscode_vimconf == "Y"
+
+- name: Copy settings.json
+  become: no
+  copy:
+    src: settings.json
+    dest: ~/.config/Code/User/settings.json
+  when: vscode_vimconf == "Y"

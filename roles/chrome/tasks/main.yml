@@ -1,0 +1,17 @@
+---
+- name: Downloading chrome
+  get_url:
+    url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    dest: /tmp/chrome.deb
+  when: chrome == "Y"
+  
+- name: Installing chrome
+  apt:
+    deb: /tmp/chrome.deb
+  when: chrome == "Y"
+
+- name: Remove chrome deb file
+  file:
+    path: /tmp/chrome.deb
+    state: absent
+  when: chrome == "Y"

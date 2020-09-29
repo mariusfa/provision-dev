@@ -1,0 +1,51 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+  roles:
+    - common
+    - vscode
+    - chrome
+  vars_prompt:
+    - name: vscode
+      prompt: "Install vscode (Y/n)?"
+      default: "Y"
+      private: no
+
+    - name: vscode_vimconf
+      prompt: "Install vscode vim extension and setup settings.json (Y/n)?"
+      default: "Y"
+      private: no
+
+    - name: vim
+      prompt: "Install vim (Y/n)?"
+      default: "Y"
+      private: no
+
+    - name: git
+      prompt: "Install git (Y/n)?"
+      default: "Y"
+      private: no
+
+    - name: git_user
+      prompt: "Git username?"
+      private: no
+
+    - name: git_email
+      prompt: "Git email?"
+      private: no
+
+    - name: git_editor
+      prompt: "Set vim as default git editor (vim/code)?"
+      default: "vim"
+      private: no
+
+    - name: ssh_key
+      prompt: "Generate ssh key? (Y/n)"
+      default: "Y"
+      private: no
+
+    - name: chrome
+      prompt: "Install chrome? (Y/n)"
+      default: "Y"
+      private: no

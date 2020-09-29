@@ -1,0 +1,35 @@
+---
+- name: Install curl
+  apt:
+    name: curl
+
+- name: Install vim
+  apt:
+    name: vim
+  when: vim == "Y"
+
+- name: Install git
+  apt:
+    name: git
+  when: git == "Y"
+
+- name: Set git user
+  become: no
+  command: git config --global user.name "{{ git_user }}"
+  when: git_user is defined and git == "Y"
+
+- name: Set git email
+  become: no
+  command: git config --global user.email {{ git_email }}
+  when: git_email is defined and git == "Y"
+
+- name: Set git editor
+  become: no
+  command: git config --global user.editor {{ git_editor }}
+  when: git_editor is defined and git == "Y"
+
+- name: Generate ssh key
+  become: no
+  shell: ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
+  ignore_errors: yes
+  when: ssh_key == "Y"
