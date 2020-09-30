@@ -10,6 +10,7 @@
     - postman
     - java
     - node
+    - docker
   vars_prompt:
     - name: vscode
       prompt: "Install vscode (Y/n)?"
@@ -71,5 +72,10 @@
       
     - name: node
       prompt: "Install nvm and node? (Y/n)"
+      default: "Y"
+      private: no
+      
+    - name: docker
+      prompt: "Install docker and docker-compose? (Y/n)"
       default: "Y"
       private: no
