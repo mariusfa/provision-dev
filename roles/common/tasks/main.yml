@@ -25,7 +25,7 @@
 
 - name: Set git editor
   become: no
-  command: git config --global user.editor {{ git_editor }}
+  command: git config --global core.editor {{ git_editor }}
   when: git_editor is defined and git == "Y"
 
 - name: Generate ssh key
