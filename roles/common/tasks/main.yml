@@ -28,6 +28,11 @@
   command: git config --global core.editor {{ git_editor }}
   when: git_editor is defined and git == "Y"
 
+- name: Set git alias push remote alias
+  become: no
+  command: git config --global alias.pushd "push -u origin HEAD"
+  when: git == "Y"
+
 - name: Generate ssh key
   become: no
   shell: ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
