@@ -1,4 +1,4 @@
 ---
 - name: Install intellij community
-  shell: snap install intellij-idea-community --classic --edge
+  shell: snap install intellij-idea-community --classic
   when: intellij == "Y"
